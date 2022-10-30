@@ -33,14 +33,14 @@ function Header() {
       {/* Mobile Menu */}
       <div className="md:hidden">
         {isMenuOpened ? (
-          <div className="backdrop z-[10] absolute w-screen h-screen top-0 left-0 bg-black/25"></div>
+          <div className="fixed w-screen h-screen top-0 left-0 bg-black/25"></div>
         ) : null}
 
         <div
           id="menu"
-          className={`
-          ${isMenuOpened ? "flex" : "hidden"}
-          absolute z-[50] flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md`}
+          className={`${
+            isMenuOpened ? "flex" : "hidden"
+          } absolute z-[50] flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md`}
         >
           <a href="#">Pricing</a>
           <a href="#">Product</a>
