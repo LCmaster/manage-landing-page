@@ -7,6 +7,10 @@ import MainMenu from "../component/MainMenu";
 function Header() {
   const [isMenuOpened, toggleMenu] = useState(false);
 
+  const onToggleMenu = () => {
+    toggleMenu(!isMenuOpened);
+  };
+
   return (
     <nav className="relative container mx-auto p-6">
       <div className="flex items-center justify-between">
@@ -19,7 +23,7 @@ function Header() {
         {/* Hamburger Menu Button */}
         <button
           id="menu-btn"
-          onClick={() => toggleMenu(!isMenuOpened)}
+          onClick={onToggleMenu}
           className={`${
             isMenuOpened && "open"
           } z-[50] md:hidden block hamburger  focus:outline-none`}
@@ -33,7 +37,10 @@ function Header() {
       {/* Mobile Menu */}
       <div className="md:hidden">
         {isMenuOpened ? (
-          <div className="fixed w-screen h-screen top-0 left-0 bg-black/25"></div>
+          <div
+            onClick={onToggleMenu}
+            className="fixed w-screen h-screen top-0 left-0 bg-black/25"
+          ></div>
         ) : null}
 
         <div
